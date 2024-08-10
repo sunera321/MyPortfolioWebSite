@@ -44,7 +44,7 @@ const Hero = () => {
             <a href="#" title="Get quote now"
               //on click alart 
               onClick={() => {
-                alert("temparaly disabled")
+                alert("admin temporarily disabled")
               }}
               class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
               role="button">Download CV
