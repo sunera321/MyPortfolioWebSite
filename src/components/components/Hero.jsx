@@ -18,7 +18,7 @@ const Hero = () => {
         />
 
         <div className='flex gap-5 pl-10 mt-10'>
-          <a href='www.linkedin.com/in/sunera-sudaraka' target='_blank' rel='noreferrer'>
+          <a href='https://www.linkedin.com/in/sunera-sudaraka' target='_blank' rel='noreferrer'>
             <FaLinkedin className='w-9 h-9' />
           </a>
           <a href='https://github.com/sunera321' target='_blank' rel='noreferrer'>
