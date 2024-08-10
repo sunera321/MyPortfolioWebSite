@@ -18,19 +18,19 @@ const Hero = () => {
         />
 
         <div className='flex gap-5 pl-10 mt-10'>
-          <a href='https://www.linkedin.com/in/sunera-fernando-7b0b2b1b4/' target='_blank' rel='noreferrer'>
+          <a href='www.linkedin.com/in/sunera-sudaraka' target='_blank' rel='noreferrer'>
             <FaLinkedin className='w-9 h-9' />
           </a>
-          <a href='https://www.linkedin.com/in/sunera-fernando-7b0b2b1b4/' target='_blank' rel='noreferrer'>
+          <a href='https://github.com/sunera321' target='_blank' rel='noreferrer'>
             <FaGithub className='w-9 h-9' />
           </a>
-          <a href='https://www.linkedin.com/in/sunera-fernando-7b0b2b1b4/' target='_blank' rel='noreferrer'>
+          <a href='https://twitter.com/Sunera53928182?s=09' target='_blank' rel='noreferrer'>
             <FaTwitter className='w-9 h-9' />
           </a>
-          <a href='https://www.linkedin.com/in/sunera-fernando-7b0b2b1b4/' target='_blank' rel='noreferrer'>
+          <a href='https://www.facebook.com/sunera.sudaraka.1/' target='_blank' rel='noreferrer'>
             <FaFacebookF className='w-9 h-9' />
           </a>
-          <a href='https://www.linkedin.com/in/sunera-fernando-7b0b2b1b4/' target='_blank' rel='noreferrer'>
+          <a href='https://www.instagram.com/sunera_sudaraka/' target='_blank' rel='noreferrer'>
             <FaInstagram className='w-9 h-9' />
           </a>
 
