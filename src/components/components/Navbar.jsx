@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { styles } from '../../styles'
 // import { navLinks } from '../../constants'
 import { menu, close } from '../../assets/assets'
-import logo from '../../assets/logocolor.png' // Import the image
+import logo from '../../assets/logocolor.png' 
 
 const navLinks = [
 

@@ -4,8 +4,7 @@ import { styles } from '../../styles'
 import ComputerCanvas from '../components/canvas/Computers'
 import { FaLinkedin, FaGithub, FaTwitter, FaFacebookF, FaInstagram, FaArrowDown } from 'react-icons/fa' // Import skill icons
 import TypingEffect from 'react-typing-effect' // Import TypingEffect component
-
-
+import myphoto from '../../assets/profilebackremove.png'
 
 
 const Hero = () => {
@@ -13,7 +12,7 @@ const Hero = () => {
     <div className='flex h-screen'>
       <div className='mt-5 text-white w-[25%] flex flex-col items-center  pr-0 rounded-r-lg shadow-lg'>
         <img
-          src='src\assets\profilebackremove.png'
+          src={myphoto}
           alt='Sunera'
           className='w-[90%] h-[70%] rounded-3xl'
         />
