@@ -68,6 +68,7 @@ const experiences = [
 
 const Experience = () => {
   return (
+    <section id='education'>
     <div className='mt-16'>
       <p className={styles.sectionSubText}>
         What i have done so far
@@ -117,6 +118,7 @@ const Experience = () => {
            </VerticalTimeline>
       </div>
     </div>
+    </section>
   )
 }
 

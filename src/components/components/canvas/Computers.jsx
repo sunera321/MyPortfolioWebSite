@@ -31,8 +31,8 @@ const Computers = () => {
     
       <primitive
         object={computer.scene}
-        scale={windowWidth < 600 ? 0.6 : 0.75}
-        position={windowWidth < 600 ?[0, -2.5, -1.5]:[0, -3.25, -1.5]}
+        scale={windowWidth < 500 ? 0.6 : 0.75}
+        position={windowWidth < 500 ?[0, -2.5, -1.5]:[0, -3.25, -1.5]}
         rotation={[0,-0.2, -0.1]}
       />
     </mesh>

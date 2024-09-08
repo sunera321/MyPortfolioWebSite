@@ -20,6 +20,7 @@ const Tech = () => {
     { name: 'Java', icon: <FaJava color="#007396" /> },
   ];
   return (
+    <section id='skills'>
     <div className="p-8 mt-10 mb-10">
       <p className={styles.sectionSubText}>
         What i have Knowledge
@@ -36,6 +37,7 @@ const Tech = () => {
         ))}
       </Tilt>
     </div>
+    </section>
   );
 };
 
