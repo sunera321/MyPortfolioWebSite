@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { styles } from '../../styles';
-import ComputerCanvas from '../components/canvas/Computers';
 import TypingEffect from 'react-typing-effect';
-import myphoto from '../../assets/profilebackremove-removebg-preview.png';
-import { FaLinkedin, FaGithub, FaTwitter, FaFacebookF, FaInstagram, FaArrowDown, FaHome, FaUser, FaGraduationCap, FaCogs, FaProjectDiagram, FaEnvelope } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import myphoto from '../../assets/qq.png';
+import { FaLinkedin, FaGithub, FaTwitter, FaFacebookF, FaInstagram, FaArrowDown} from 'react-icons/fa';
 
-const NavButton = ({ href, icon: Icon, label }) => (
-  <a
+
+
+const SocialLink = ({ href, icon: Icon }) => (
+  <motion.a
     href={href}
-    className="relative flex items-center justify-center w-12 h-12 mb-4 lg:mb-0 group"
-    title={label}
+    target="_blank"
+    rel="noreferrer"
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+    className="p-3 transition-colors duration-300 rounded-full bg-white/10 hover:bg-white/20"
   >
-    <span className="absolute w-full h-full transition-opacity duration-300 bg-white rounded-full opacity-0 group-hover:opacity-20"></span>
-    <Icon className="text-white text-xl group-hover:text-[#859aec] transition-colors duration-300" />
-  </a>
+    <Icon className="w-6 h-6 text-white" />
+  </motion.a>
 );
 
 const Hero = () => {
@@ -29,24 +31,34 @@ const Hero = () => {
     };
 
     mediaQuery.addEventListener('change', handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener('change', handleMediaQueryChange);
-    };
+    return () => mediaQuery.removeEventListener('change', handleMediaQueryChange);
   }, []);
 
-  return (
-    <section id='home'>
-    <div className="flex flex-col h-screen md:flex-row ml-7">
-      {/* Left Sidebar */}
-      {isMobile && <div className='mt-16 '>
-            <h1 className={`${styles.heroHeadText}`}>
+  return (  
+    <section id="home" className="relative min-h-screen bg-[#0a192f]">
+      <div className="container relative flex flex-col items-center justify-center min-h-screen px-4 mx-auto md:px-8">
+        {/* Background Gradient */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute w-96 h-96 -top-10 -left-10 bg-purple-500/30 rounded-full filter blur-3xl opacity-30" />
+          <div className="absolute w-96 h-96 -bottom-10 -right-10 bg-blue-500/30 rounded-full filter blur-3xl opacity-30" />
+        </div>
+
+        <div className="relative z-10 mt-20 flex flex-col-reverse items-center w-full gap-12 md:flex-row md:justify-between">
+          {/* Left Content */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-center text-center md:items-start md:text-left md:w-1/2"
+          >
+            <h1 className="text-4xl font-bold text-white md:text-6xl">
               Hi, I am <span className="text-[#859aec]">Sunera</span>
             </h1>
-            <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+            
+            <div className="h-16 mt-4">
               <TypingEffect
                 text={[
-                  'I am a Full Stack Developer',
+                  'Full Stack Developer',
                   'Front End Developer',
                   'Back End Developer',
                 ]}
@@ -54,114 +66,65 @@ const Hero = () => {
                 eraseSpeed={50}
                 eraseDelay={1000}
                 typingDelay={500}
+                className="text-xl text-gray-300 md:text-2xl"
               />
+            </div>
+
+            <p className="max-w-md mt-6 text-gray-400">
+              Passionate about creating beautiful, responsive, and user-friendly web applications
+              with modern technologies and best practices.
             </p>
-          </div>
-          
-          
-          }
-      <div className=" text-white w-full md:w-[25%] flex flex-col items-center md:items-start md:pr-0  lg:px-0 md:rounded-r-md shadow-lg">
-        <img
-          src={myphoto}
-          alt="Sunera"
-          className="w-[30%] h-[100%] md:w-[90%] md:h-[90%] rounded-full md:rounded-3xl"
-        />
 
-        <div className="flex gap-5 mt-5 lg:mt-10">
-          <a href="https://www.linkedin.com/in/sunera-sudaraka" target="_blank" rel="noreferrer">
-            <FaLinkedin className="w-7 h-7 md:w-9 md:h-9" />
-          </a>
-          <a href="https://github.com/sunera321" target="_blank" rel="noreferrer">
-            <FaGithub className="w-7 h-7 md:w-9 md:h-9" />
-          </a>
-          <a href="https://twitter.com/Sunera53928182?s=09" target="_blank" rel="noreferrer">
-            <FaTwitter className="w-7 h-7 md:w-9 md:h-9" />
-          </a>
-          <a href="https://www.facebook.com/sunera.sudaraka.1/" target="_blank" rel="noreferrer">
-            <FaFacebookF className="w-7 h-7 md:w-9 md:h-9" />
-          </a>
-          <a href="https://www.instagram.com/sunera_sudaraka/" target="_blank" rel="noreferrer">
-            <FaInstagram className="w-7 h-7 md:w-9 md:h-9" />
-          </a>
-        </div>
+            <div className="flex gap-4 mt-8">
+              <SocialLink href="https://www.linkedin.com/in/sunera-sudaraka" icon={FaLinkedin} />
+              <SocialLink href="https://github.com/sunera321" icon={FaGithub} />
+              <SocialLink href="https://twitter.com/Sunera53928182" icon={FaTwitter} />
+              <SocialLink href="https://www.facebook.com/sunera.sudaraka.1" icon={FaFacebookF} />
+              <SocialLink href="https://www.instagram.com/sunera_sudaraka" icon={FaInstagram} />
+            </div>
 
-        <div className="flex items-center justify-center mt-5 ml-10 md:mt-10">
-          <div className="relative inline-flex group">
-            <div className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
-            <a
-              href="#"
-              onClick={() => {
-                alert('admin temporarily disabled');
-              }}
-              className="relative inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white transition-all duration-200 bg-gray-900 lg:px-8 lg:py-4 lg:text-lg font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 mt-8 text-lg font-semibold text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] hover:opacity-90"
+              onClick={() => alert('admin temporarily disabled')}
             >
               Download CV
-            </a>
-          </div>
-        </div>
-      </div>
+            </motion.button>
+          </motion.div>
 
-      {/* Main Section */}
-      {!isMobile && <section className="relative h-[60vh] lg:h-screen w-full lg:w-[70%] lg:ml-7">
-        <div className="absolute inset-0 top-[40px] lg:top-[80px] mx-auto pl-0 flex flex-row items-start gap-5">
-          <div className="flex flex-col items-center justify-center mt-2 lg:mt-5">
-            <div className="w-3 h-3 lg:w-5 lg:h-5 rounded-full bg-[#6e2ff5]" />
-            <div className="w-1 h-32 lg:h-[600px] violet-gradient" />
-          </div>
-
-          <div>
-            <h1 className={`${styles.heroHeadText}`}>
-              Hi, I am <span className="text-[#859aec]">Sunera</span>
-            </h1>
-            <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-              <TypingEffect
-                text={[
-                  'I am a Full Stack Developer',
-                  'Front End Developer',
-                  'Back End Developer',
-                ]}
-                speed={50}
-                eraseSpeed={50}
-                eraseDelay={1000}
-                typingDelay={500}
+          {/* Right Content - Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="relative md:w-1/2"
+          >
+            <div className="relative w-64 h-64 md:w-96 md:h-96">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-full animate-pulse" style={{ filter: 'blur(40px)' }} />
+              <img
+                src={myphoto}
+                alt="Sunera"
+                className="relative object-cover w-full h-full rounded-full"
               />
-            </p>
-          </div>
-        </div>
-
-        {!isMobile && <ComputerCanvas />}
-
-        <div className="absolute flex items-center justify-center w-full bottom-10 lg:bottom-32">
-          <a href="#about">
-            <div className="w-[35px] h-[60px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
-              <motion.div
-                animate={{ y: [-2, 17, 0] }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  repeatType: 'reverse',
-                }}
-                className="flex items-center justify-center w-8 h-8 mb-1 rounded-full bg-secondary"
-              >
-                <FaArrowDown className="text-lg text-white" />
-              </motion.div>
             </div>
-          </a>
+          </motion.div>
         </div>
-      </section>}
 
-      {/* Navigation Section */}
-      <div className="fixed bottom-0 left-0 right-0 lg:static lg:w-[5%] flex justify-end lg:justify-start items-center">
-        <div className="flex flex-col items-center lg:fixed lg:right-8 lg:top-1/2 lg:transform lg:-translate-y-1/2">
-          <NavButton href="#home" icon={FaHome} label="Home" />
-          <NavButton href="#about" icon={FaUser} label="About" />
-          <NavButton href="#education" icon={FaGraduationCap} label="Education" />
-          <NavButton href="#skills" icon={FaCogs} label="Skills" />
-          <NavButton href="#projects" icon={FaProjectDiagram} label="Projects" />
-          <NavButton href="#contact" icon={FaEnvelope} label="Contact" />
-        </div>
+     
+
+        {/* Scroll Indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
+        >
+          <a href="#about" className="flex flex-col items-center text-white/60 hover:text-white/80">
+            <span className="mb-2 text-sm">Scroll Down</span>
+            <FaArrowDown className="w-5 h-5" />
+          </a>
+        </motion.div>
       </div>
-    </div>
     </section>
   );
 };

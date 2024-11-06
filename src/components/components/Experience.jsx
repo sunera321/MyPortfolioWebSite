@@ -1,10 +1,7 @@
-import React from 'react'
 import {   VerticalTimeline,
   VerticalTimelineElement,   } from 'react-vertical-timeline-component'
-import {motion} from 'framer-motion'
 import 'react-vertical-timeline-component/style.min.css'
 import { styles } from '../../styles'
-import { textVariant } from '../../Utils/motion'
 import uomlogo from '../../assets/assets/company/uomlogo.png';
 import stc from '../../assets/assets/company/stc.png';
 import PeoplesBank from '../../assets/assets/company/Peoples-Bank-.jpg';
@@ -13,6 +10,7 @@ import morasprit from '../../assets/assets/company/download.jpg';
 
 const experiences = [
   {
+    
     title: "Bachelor Of Science Infomation Technology and management",
     company_name: "University Of Moratuwa, LK",
     icon: uomlogo,
@@ -68,7 +66,8 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id='education'>
+    <section id='education' className=''>
+     
     <div className='mt-16'>
       <p className={styles.sectionSubText}>
         What i have done so far
@@ -78,8 +77,9 @@ const Experience = () => {
       </h2>
       <div className='flex flex-col mt-20'>
         <VerticalTimeline className='z-0 '>
-      {experiences.map((exp,index) => (
+      {experiences.map((exp, index) => (
         <VerticalTimelineElement
+          key={index}
         
           contentStyle={{ background: '#1d1836', color: '#fff' }}
           contentArrowStyle={{ borderRight: '7px solid  #232631' }}
